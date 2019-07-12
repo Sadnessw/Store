@@ -1,23 +1,33 @@
-const images = document.querySelectorAll('li a img');
 const catalog = document.getElementsByClassName('catalog')[0];
+const select = document.getElementsByName('sort-byAlph')[0];
 
-fetch('https://speisekarte.telenorma.info/api/shops/Damfastore%20Magdeburg/manufacturers?sort=1')
-  .then(res => res.json())
-  .then(function setIcon(obj) {
-  const withIcon = obj.filter(el => el.icon != null);
-  for (let i = 0; i < withIcon.length; i++) {
+
+
+async function getMan(params) {
+  return await (await fetch(`https://speisekarte.telenorma.info/api/shops/Damfastore%20Magdeburg/manufacturers${params}`)).json();
+}
+
+(async function () {
+  const json = await getMan('');
+  const withIcon = json.filter(el => el.icon);
+  withIcon.forEach((element) => {
     const newLi = document.createElement('li');
     newLi.className = "item-catalog";
-    newLi.id = withIcon[i]._id;
-    newLi.innerHTML = `<a href="#"><img src="${withIcon[i].icon}" alt="logo.png" width="200" height="200"></a>`;
+    newLi.id = element._id;
+    newLi.innerHTML = `<a href="#"><img src="${element.icon}" alt="logo.png" width="200" height="200"></a>`;
     catalog.appendChild(newLi);
-  }
-}).catch(rej => console.log(`o_O ${rej}`));
+  })
+})();
 
-
-// (async function test() {
-//   const some = await fetch('https://speisekarte.telenorma.info/api/shops/Damfastore%20Magdeburg/goods?manufacturer=113&itemsPerPage=100');
-//   await some.json();
-//   console.log(some)
-  
-// })();
+select.onchange = async function (e) {
+  catalog.innerHTML = '';
+  const json = await getMan(`?sort=${e.target.value}`);
+  const withIcon = json.filter(el => el.icon);
+  withIcon.forEach((element) => {
+    const newLi = document.createElement('li');
+    newLi.className = "item-catalog";
+    newLi.id = element._id;
+    newLi.innerHTML = `<a href="#"><img src="${element.icon}" alt="logo.png" width="200" height="200"></a>`;
+    catalog.appendChild(newLi);
+  })
+}
