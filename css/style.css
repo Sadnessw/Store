@@ -4,13 +4,30 @@
 }
 
 html {
-    background: linear-gradient(to bottom, rgb(240, 240, 240), rgb(209, 209, 209));
+    background: linear-gradient(to bottom, rgb(224, 224, 224), rgb(184, 184, 184));
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     width: 100%;
     height: 100%;
 }
 
 #main-logo-id {
     margin: 5px 15px;
+}
+
+.catalog {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.item-catalog {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 5px;
 }
