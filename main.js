@@ -3,11 +3,7 @@ const catalog = document.getElementsByClassName('catalog')[0];
 
 fetch('https://speisekarte.telenorma.info/api/shops/Damfastore%20Magdeburg/manufacturers?sort=1')
   .then(res => res.json())
-  .then(json => setIcon(json))
-  .catch(rej => console.log(`o_O ${rej}`));
-
-
-function setIcon(obj) {
+  .then(function setIcon(obj) {
   const withIcon = obj.filter(el => el.icon != null);
   for (let i = 0; i < withIcon.length; i++) {
     const newLi = document.createElement('li');
@@ -16,4 +12,12 @@ function setIcon(obj) {
     newLi.innerHTML = `<a href="#"><img src="${withIcon[i].icon}" alt="logo.png" width="200" height="200"></a>`;
     catalog.appendChild(newLi);
   }
-}
+}).catch(rej => console.log(`o_O ${rej}`));
+
+
+// (async function test() {
+//   const some = await fetch('https://speisekarte.telenorma.info/api/shops/Damfastore%20Magdeburg/goods?manufacturer=113&itemsPerPage=100');
+//   await some.json();
+//   console.log(some)
+  
+// })();
