@@ -45,3 +45,7 @@ html {
     position: relative;
     top: 2px;
 }
+
+.item-catalog img {
+    border-radius: 10%;
+}
