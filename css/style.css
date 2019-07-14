@@ -16,7 +16,8 @@ html {
     margin: 5px 15px;
 }
 
-.catalog {
+.catalog,
+.subcatalog {
     margin: 0 auto;
     width: 50%;
     display: flex;
@@ -25,7 +26,8 @@ html {
     flex-wrap: wrap;
 }
 
-.item-catalog { 
+.item-catalog,
+.item-subcatalog { 
     width: 200px;
     height: 200px;
     border: 1px dotted gray;
@@ -34,19 +36,22 @@ html {
     border-radius: 20px;
 }
 
-.item-catalog:hover {
+.item-catalog:hover,
+.item-subcatalog:hover {
     box-shadow: 0 0 20px 3px rgb(255, 193, 193);
     position: relative;
     top: 1px;
 }
 
-.item-catalog:active {
+.item-catalog:active,
+.item-subcatalog:acitve {
     box-shadow: 0 0 20px 3px rgb(255, 169, 169);
     position: relative;
     top: 2px;
 }
 
-.item-catalog img {
+.item-catalog img,
+.item-subcatalog img {
     border-radius: 10%;
 }
 
