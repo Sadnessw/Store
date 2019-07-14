@@ -49,3 +49,33 @@ html {
 .item-catalog img {
     border-radius: 10%;
 }
+
+.btn-back {
+    color: rgb(146, 35, 35);
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.btn-back:hover {
+    box-shadow: 0 1px 1px 1px rgb(199, 138, 138);
+}
+
+.btn-back:active {
+    box-shadow: 0 1px 1px 2px rgb(199, 138, 138);
+}
+
+.btn-back:focus {
+    outline: 0;
+}
+
+.header-title {
+    display: flex;
+}
+
+.main-title {
+    margin: 10px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30pt;
+}
